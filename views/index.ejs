@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Table</title>
+</head>
+<body>
+
+<h2>Student Data</h2>
+
+<form action="/add" method="POST">
+  Name: <input type="text" name="name">
+  Marks: <input type="number" name="marks">
+  <button>Add</button>
+</form>
+
+<br>
+
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Marks</th>
+    <th>Result</th>
+  </tr>
+
+  <% data.forEach(d => { %>
+    <tr>
+      <td><%= d.name %></td>
+      <td><%= d.marks %></td>
+
+      <td>
+        <% if (d.marks >= 50) { %>
+          Pass
+        <% } else { %>
+          Fail
+        <% } %>
+      </td>
+    </tr>
+  <% }) %>
+
+</table>
+
+</body>
+</html>
